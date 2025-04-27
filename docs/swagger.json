@@ -1,0 +1,58 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/send-mail": {
+            "post": {
+                "description": "Retorna la lista de sensores disponibles",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "sensores"
+                ],
+                "summary": "Listar sensores",
+                "parameters": [
+                    {
+                        "description": "Cuerpo del mensaje",
+                        "name": "message",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ContactRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.ContactRequest": {
+            "type": "object",
+            "properties": {
+                "from": {
+                    "type": "string"
+                },
+                "subject": {
+                    "type": "string"
+                },
+                "to": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

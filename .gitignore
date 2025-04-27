@@ -1,0 +1,25 @@
+# Binarios
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+
+# Directorios de salida
+/bin/
+/build/
+/dist/
+/tmp
+
+# Archivos de módulos (si no quieres subir vendor)
+#/vendor/
+
+# Cachés y configuraciones de IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Archivos temporales
+*~

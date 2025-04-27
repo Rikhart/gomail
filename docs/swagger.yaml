@@ -1,0 +1,36 @@
+definitions:
+  models.ContactRequest:
+    properties:
+      from:
+        type: string
+      subject:
+        type: string
+      to:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /send-mail:
+    post:
+      description: Retorna la lista de sensores disponibles
+      parameters:
+      - description: Cuerpo del mensaje
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/models.ContactRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+      summary: Listar sensores
+      tags:
+      - sensores
+swagger: "2.0"
