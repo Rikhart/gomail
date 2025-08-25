@@ -1,10 +1,11 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"gomail/docs"
 	db "gomail/models"
-	"gomail/queue"
+	queue "gomail/queue"
 	routes "gomail/routes"
 	"log"
 
@@ -26,30 +27,30 @@ func main() {
 	r := gin.Default()
 	// Conexión al sistema de colas Backlite
 
-	// bl, mux, err := queue.Connect()
-	// if err != nil {
-	// 	log.Fatalf("Error al iniciar Backlite: %v", err)
-	// }
-	// // Iniciar procesamiento de tareas en segundo plano
-	// go bl.Start(context.Background())
-	// // Exponer panel de administración de Backlite
-	// r.GET("/panel/*any", gin.WrapH(http.StripPrefix("/panel", mux)))
-	// r.GET("/", func(c *gin.Context) {
-	// 	c.Redirect(http.StatusFound, "/panel")
-	// })
-	// r.GET("/succeeded", func(c *gin.Context) {
-	// 	c.Redirect(http.StatusFound, "/panel/succeeded")
-	// })
-	// r.GET("/failed", func(c *gin.Context) {
-	// 	c.Redirect(http.StatusFound, "/panel/failed")
-	// })
-	// r.GET("/upcoming", func(c *gin.Context) {
-	// 	c.Redirect(http.StatusFound, "/panel/upcoming")
-	// })
+	bl, mux, err := queue.Connect()
+	if err != nil {
+		log.Fatalf("Error al iniciar Backlite: %v", err)
+	}
 
-	// Conexión al sistema de colas gogite
-	// queue :=
-	queue.Connect2()
+	// err = queue.EnqueueNewOrderEmail(bl, "12345", "cliente@correo.com")
+	// // Iniciar procesamiento de tareas en segundo plano
+	go bl.Start(context.Background())
+
+	err = queue.EnqueueNewOrderEmail(bl, "12345", "cliente@correo.com")
+
+	if err != nil {
+		log.Printf("Error encolando tarea: %v", err)
+	}
+
+	// // Exponer panel de administración de Backlite
+	r.Any("/dashboard", gin.WrapH(mux))
+	r.Any("/dashboard/*any", gin.WrapH(mux))
+
+	// Ejemplo: encolar tarea de nuevo pedido
+
+	if err != nil {
+		log.Printf("Error encolando tarea: %v", err)
+	}
 
 	// Rutas principales de la aplicación
 	routes.Launch(r)

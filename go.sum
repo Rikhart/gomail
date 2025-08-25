@@ -71,6 +71,8 @@ github.com/mattn/go-sqlite3 v1.14.28 h1:ThEiQrnbtumT+QMknw63Befp/ce/nUPgBPMlRFEu
 github.com/mattn/go-sqlite3 v1.14.28/go.mod h1:Uh1q+B4BYcTPb+yiD3kU8Ct7aC0hY9fxUwlHK0RXw+Y=
 github.com/mikestefanello/backlite v0.4.0 h1:+OTiErTfwydXzeDS8H8iAdbmrQYJ7XuwxFApFORVy+k=
 github.com/mikestefanello/backlite v0.4.0/go.mod h1:yvGKIFQxscmVYW8dtvlmT3UzfmM0NX2OigwNGsbR46o=
+github.com/mikestefanello/backlite v0.6.0 h1:kpQKxR5NGHWvtAZuR0AsEZo95g967FY9fnU9y7YYvAY=
+github.com/mikestefanello/backlite v0.6.0/go.mod h1:gx6UKLUQY5OVXQkIm3AzNkyPn9OzoKHKuwM4JGrY4tQ=
 github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421/go.mod h1:6dJC0mAP4ikYIbvyc7fijjWJddQyLn8Ig3JB5CqoB9Q=
 github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd h1:TRLaZ9cD/w8PVh93nsPXa1VrQ6jlwL5oN8l14QlcNfg=
 github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd/go.mod h1:6dJC0mAP4ikYIbvyc7fijjWJddQyLn8Ig3JB5CqoB9Q=
